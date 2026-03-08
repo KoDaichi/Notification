@@ -6,21 +6,12 @@ from jwt.algorithms import RSAAlgorithm
 
 # ===== 設定 =====
 CHANNEL_ID = "2009361640"
-KID = "f1010156-f490-4cec-a723-30cd17782032"
+KID = "f1010156-f490-4cec-a723-30cd17782032"  # KID = Assertion Signing Key
 
-private_key = {
-    "alg": "RS256",
-    "d": "DPCO9_3U5SIe0qZ9r5xHi9Bol5l6EQzqdPoSXfD8cP-tm18OeeJVwhz1403M6IfQBrVXXcDo147FKrnyrzxcFsM6H6qzRNIeJt5Kr3k6CHYYiQFw52veUpKLcKkdG37DAvF3kfaLSS4oZl5k9964Smb9YhX4_SC59zY1XAgTGp3OUCDV0Z4RpMaTfdN33-9cobZrZsDV3doKBhzNDNla2NXbwYtX9v8qgxn4_zwZIWq7HMBoao3Une9G2-L1Ak1k1ThCrRkZiJq7bt3AKz4JHQ0D8JSgIj_-dNTEf3pXETZfQ439eRLhJau5PhLM6qVgsG8fEIon-nOTCTXsOQTBIQ",
-    "dp": "k3i_HTx2XAtHOv1-xfjOBchcnrwGxtIjGb8FRT3NvvbWniVwtj_qUHXPQK1bMSIxPxGbsWK4IuUpxT-VLY5dpyuxG9KwZomG_jLKbEYRvWu0lG50JFCDlZAKPt9aUygJ79ZD1M2chxrO95hzAoRJDSHC9eXBgS3QGeD675JzLSE",
-    "dq": "cYfJ9IcEUjVketX-uorTdFXpRoyZaQA-W-EThdM_sl6Vaz89WEtsUWWrFPvlGdz9kTqf4x4D9MWg--D-MCdoTxydVKnkXjBAbbaTty062dZK3jXVffwmrIbrRIKsRvRLyUL_wH7LkBNDCaufkw3je1EB4toCHqw-Fp9jgfALTVU",
-    "e": "AQAB",
-    "kty": "RSA",
-    "n": "2RhbZKql97XxAo9hzYCTVMBf8frVYxKpb7ENOQXoLTpI6XuTE0WG0g6luaBt_biBAk0sbFldVmZyjoP70VddSDmZQ-7TShjvRWHuQdM9RagmFUPOtTmSrpyqJRjOenIId7M5t1xfd8ecjQUeFPvdiTwAItKrnNNLUC2mhrzZ0ko5Bf09bUqDeFWyw-O7lgSWzAW6VUTYObeiGN4S1ssTOV_IR5tQp_HqnjzOkWUbfiTvFK2eEizXrJbxiKGHRpnROlTq6qqdZhp_swx1twODfqvJQnX2x8mf7vzu448DPWME2d9aXgb6kNMCNiCkJWvKhz3040lJqcjOyzbO0cM0BQ",
-    "p": "48Ru7GJP3lJGM7tObq37FKEYv4RIlSRrxgXxUTFvRaF-9Y6h3VaC2-GE8_rVvdNuIPIP7uekSIyS6DIc7eRgP5J9bIoJjTodCplHd8C2pzuHK8zRs3gDwMV_F2yC7p76KlEkc7jwViXW9CEmMF5g1r60eGZRFvay4LaQkSnOtSE",
-    "q": "9AFFkziRFQ_DjiVfXhVKZq_UUHoaFuZQLUNZ3Psik8tgRK39mFLZxBcs3KfByczeDzJ9oEq-nXXGzn4IJzP2e-gX_OdrKuWrPXRDPq3rMD2x8a7y18qlAh7gXq622RefVP4vzIp9kYYby-dlLaQgJciERrjBtCR50vZ9ODyf_mU",
-    "qi": "r-chpCs9bdjcYoUqBHZapf8lWanmNnNIR8WtlWIvpAZAQYmxwFaLY90gFyYq-J_QMakEVVxmIx7UWVjtNmY2bqHd8Z-RepjNDVpW6l7H94xqvMEG3At-aSJVtsvTfbnn6lX0_uYRn7S4Jfg477E-8yO_FKNNQbhUatZCfdOuVfU",
-    "use": "sig",
-}
+with open("./private.key", "r") as f:
+    private_key = json.load(f)
+print(private_key)
+
 
 # ===== JWT header =====
 headers = {"alg": "RS256", "typ": "JWT", "kid": KID}
