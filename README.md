@@ -19,8 +19,9 @@
 
 # LINE -> CLI -> LINE (Webhook & Massaging API)
 ## Setting
-1. Run run\_command.py (Set up a sever)  
-2. Forwarding (ngrok http <your_local_port_number> ; on the another terminal) 
+1. Set up a server (Run run\_command.py)  
+2. Forwarding  
+   `$ ngrok http <your_local_port_number>` ; on the another terminal
    Before using ngrok, you need to create your account and get authtoken.  
    It is set as  
    `$ ngrok config add-authtoken <authtoken>`
