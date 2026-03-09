@@ -1,16 +1,16 @@
 import requests
+import os
 
 
 def main():
-    token = "eyJhbGciOiJIUzI1NiJ9.bbL5b8TE2_JF0l1yjD5GRKVwyD0K6BPbC4oFyoH0NfM3wIx0Vn0GCIHt0gWJv4BbzIO5Oe6NvLUQlEeSvRAtf76_eaUOk9b1PE5sHzJ0AgmaxqJU3dDmlwh_fIyMpqPC.4rbreZzOoFyNpTeoChdz-g5ikhXpEhuokSQfikSQEwA"
-    user_id = "U537e5d74199a78776902ceea191dab97"
-
+    TOKEN = os.getenv("LINE_CHANNEL_TOKEN")
+    USER_ID = os.getenv("LINE_USER_ID")
     url = "https://api.line.me/v2/bot/message/push"
 
-    headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json"}
+    headers = {"Authorization": f"Bearer {TOKEN}", "Content-Type": "application/json"}
 
     data = {
-        "to": user_id,
+        "to": USER_ID,
         "messages": [{"type": "text", "text": "Python job finished"}],
     }
 
