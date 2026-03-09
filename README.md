@@ -21,10 +21,8 @@
 ## Setting
 1. Run run\_command.py (Set up a sever)  
 2. Forwarding (ngrok http <your_local_port_number> ; on the another terminal) 
-   Before using ngrok, you need to create your account and get authtoken. 
-   It is set as 
-   '''
-   $ ngrok config add-authtoken <authtoken>
-   '''
+   Before using ngrok, you need to create your account and get authtoken.  
+   It is set as  
+   `$ ngrok config add-authtoken <authtoken>`
 3. Set displayed URL into the LINE Developers Webhook URL  
    Ex) https://unconfidently-unfraught-giana.ngrok-free.dev/callback 
