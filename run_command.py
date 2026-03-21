@@ -29,9 +29,9 @@ parser = WebhookParser(CHANNEL_SECRET)
 # =============================
 
 ALLOWED_JOBS = {
-    "test": "test.py",
-    "analysis": "analysis.py",
-    "notify": "notify.py",
+    "test": ["uv", "run", "python", "jobs/test.py"],
+    "analysis": ["uv", "run", "python", "jobs/analysis.py"],
+    "notify": ["uv", "run", "python", "jobs/notify.py"],
 }
 
 # =============================
@@ -128,7 +128,7 @@ def callback():
 
             threading.Thread(
                 target=run_job,
-                args=(user_id, ["python", ALLOWED_JOBS[job_name]]),
+                args=(user_id, ALLOWED_JOBS[job_name]),
                 daemon=True,
             ).start()
 
